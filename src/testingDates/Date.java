@@ -259,6 +259,30 @@ public class Date
     }
     
     Date addOneDay(){
-    	   System.out.println("Date.addOneDay() is not yet implemented.");
+    	
+    	// sort into month based brackets...
+    	// 31 days: january, march
+    	
+    	  
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

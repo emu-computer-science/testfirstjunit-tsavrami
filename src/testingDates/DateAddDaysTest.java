@@ -1,6 +1,5 @@
 package testingDates;
 import static org.junit.Assert.*;
-
 import org.junit.*;
 
 public class DateAddDaysTest {
@@ -8,7 +7,7 @@ public class DateAddDaysTest {
 private static Date janThird = new Date("January",3,2019);
 private static Date janThirtyFirst = new Date("January",31,2019);
 private static Date febTwentyEigth = new Date("February",28,2019);
-private static Date augThirtieth = new Date("August",30,2019);
+private static Date julyThirtieth = new Date("July",30,2019);
 private static Date decThirtyFirst = new Date("December",31,2019);
 
 	@Test
@@ -38,8 +37,8 @@ private static Date decThirtyFirst = new Date("December",31,2019);
 		Date marFirst = new Date("March",1,2019);
 		assertSame(marFirst, testDate2.addOneDay());
 		
-		Date testDate3 = new Date(augThirtieth);
-		Date septFirst = new Date("September",1,2019);
+		Date testDate3 = new Date(julyThirtieth);
+		Date septFirst = new Date("August",1,2019);
 		assertSame(septFirst, testDate3.addOneDay());
 		
 	}
