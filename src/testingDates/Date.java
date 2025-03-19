@@ -58,7 +58,7 @@ public class Date
         }
     }
 
-    public void setDate(String monthString, int day, int year)
+    public Date setDate(String monthString, int day, int year)
     {
         if (dateOK(monthString, day, year))
         {
@@ -68,9 +68,10 @@ public class Date
         }
         else
         {
-            System.out.println("Fatal Error in setDate(String,int, int)");
-            System.exit(0);
+            return null;
         }
+        
+        return this;
     }
 
     public void setDate(int year)
@@ -261,9 +262,47 @@ public class Date
     Date addOneDay(){
     	
     	// sort into month based brackets...
-    	// 31 days: january, march
+    	// 30 days: April, June, September, November
+    	// 31 days: January, March, May, July, august, October
+    	// special: February
+    	// special: December
+    	if (this.month.equals("January")
+    			|| this.month.equals("March")
+    			|| this.month.equals("May")
+    			|| this.month.equals("July")
+    			|| this.month.equals("August")
+    			|| this.month.equals("October")) {
+    		if(this.day == 31) {
+    			this.month = monthString(this.getMonth() + 1);
+    			this.day = 1;
+    		}else {
+    			this.day = this.day + 1;
+    		}
+    	}else if(this.month.equals("February")) {
+    		if(this.day == 28) {
+    			this.month = "March";
+    			this.day = 1;
+    		}else {
+    			this.day = this.day + 1;
+    		}
+    	}else if(this.month.equals("December")) {
+    		if(this.day == 31) {
+    			this.month = "January";
+    			this.day = 1;
+    			this.year = this.year + 1;
+    		}else {
+    			this.day = this.day + 1;
+    		}
+    	}else { // 30 day months
+    		if(this.day == 30) {
+    			this.month = monthString(this.getMonth() + 1);
+    			this.day = 1;
+    		}else {
+    			this.day = this.day + 1;
+    		}
+    	}
     	
-    	  
+    	return this;
     }
 }
 

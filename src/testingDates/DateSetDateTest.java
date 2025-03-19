@@ -9,17 +9,17 @@ public class DateSetDateTest {
 	@Test
 	public void testLegalDate() {
 		Date valentines = new Date("February", 14, 2025);
-		Date testDate = new Date(janThird);
-		testDate.setDate("February", 14, 2025);
-		assertSame(valentines, testDate);	
+		Date testDate = new Date(janThird).setDate("February", 14, 2025);
+		assertEquals(valentines.getMonth(), testDate.getMonth());
+		assertEquals(valentines.getDay(), testDate.getDay());
+		assertEquals(valentines.getYear(), testDate.getYear());	
 	}
 	
 	@Test
 	public void testIllegalDate() {
-		Date janThird_copy = new Date(janThird);
-		Date testDate = new Date(janThird);
-		testDate.setDate("January", 40, 2019); // maybe do one for month and year also
-		assertSame(janThird_copy, testDate);
+		Date nullDate = null;
+		Date testDate = new Date(janThird).setDate("January", 40, 2019); // maybe do one for month and year also
+		assertSame(nullDate, testDate);
 	}
 	
 }
